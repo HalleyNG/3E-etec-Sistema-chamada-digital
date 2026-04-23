@@ -1,44 +1,128 @@
-1. Modelo Entidade-Relacionamento (Conceitual)As principais entidades identificadas para o sistema são:Aluno: Informações cadastrais do estudante.Professor: Responsável por gerenciar as aulas.Turma/Disciplina: Agrupamento de alunos em um horário/matéria específica.Chamada (Registro): O evento onde a presença é marcada.2. Dicionário de Dados (Lógico)Tabela: alunosAtributoTipoDescriçãoid (PK)INT/UUIDIdentificador único do aluno.nomeVARCHARNome completo.matriculaVARCHARCódigo único de identificação escolar.emailVARCHAREmail institucional (como os citados no README).qr_code_tokenTEXTToken único para geração do QR Code individual.Tabela: professoresAtributoTipoDescriçãoid (PK)INTIdentificador do professor.nomeVARCHARNome do docente.emailVARCHARLogin para o sistema.senhaVARCHARHash da senha para autenticação.Tabela: turmasAtributoTipoDescriçãoid (PK)INTIdentificador da turma.nome_disciplinaVARCHAREx: Matemática, História.professor_id (FK)INTRelaciona qual professor ministra essa turma.Tabela: presencas (O coração do sistema)AtributoTipoDescriçãoid (PK)INTIdentificador do registro.aluno_id (FK)INTQuem marcou presença.turma_id (FK)INTEm qual aula a presença foi marcada.data_horaTIMESTAMPRegistro automático de quando o aluno chegou.metodoENUM'QR Code', 'Manual', 'Login'.3. Script SQL para Implementação (Físico)Se você estiver usando MySQL ou SQLite (citados no README), pode usar este código para criar as tabelas:SQL-- Criação da tabela de Alunos
+Modelagem de Dados - Sistema de Chamada Digital
+
+Este documento detalha a estrutura do banco de dados para o projeto de Chamada Digital, conforme os requisitos de automação, segurança e organização escolar.
+
+1. Diagrama Entidade-Relacionamento (Conceitual)
+
+O sistema baseia-se na relação entre Alunos, Professores e Disciplinas, tendo a "Presença" como a entidade central que regista a interacção entre eles.
+
+2. Estrutura das Tabelas (Lógico)
+
+Tabela: usuarios
+
+Armazena as credenciais de acesso para professores e gestores.
+
+id (PK): Inteiro, Auto-incremento.
+
+nome: Varchar(100) - Nome completo do utilizador.
+
+email: Varchar(100) - Identificador único (Login).
+
+senha: Varchar(255) - Hash de segurança da password.
+
+tipo: Enum('Professor', 'Admin') - Nível de acesso.
+
+Tabela: alunos
+
+Cadastro dos estudantes que realizarão a chamada.
+
+id (PK): Inteiro, Auto-incremento.
+
+nome: Varchar(100) - Nome completo.
+
+matricula: Varchar(20) - Código único escolar.
+
+qr_code_token: Varchar(255) - Código único para gerar o QR Code individual.
+
+turma_id (FK): Referência à tabela turmas.
+
+Tabela: turmas
+
+Define os agrupamentos de alunos (Ex: 1º Ano A, 2º Ano B).
+
+id (PK): Inteiro, Auto-incremento.
+
+nome: Varchar(50) - Identificação da turma.
+
+ano_letivo: Ano.
+
+Tabela: disciplinas
+
+Matérias leccionadas.
+
+id (PK): Inteiro, Auto-incremento.
+
+nome: Varchar(50) - Ex: Matemática, História.
+
+professor_id (FK): Referência ao professor responsável.
+
+Tabela: presencas
+
+Registo automático da frequência.
+
+id (PK): Inteiro, Auto-incremento.
+
+aluno_id (FK): Identifica o aluno presente.
+
+disciplina_id (FK): Identifica a aula.
+
+data_hora: Timestamp - Registo exato da presença (Data e Hora).
+
+status: Varchar(20) - Ex: 'Presente', 'Atraso'.
+
+3. Implementação SQL (Físico)
+
+Abaixo, o script compatível com SQLite ou MySQL:
+
+-- Criar Tabela de Utilizadores/Professores
+CREATE TABLE usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo TEXT CHECK(tipo IN ('Professor', 'Admin')) DEFAULT 'Professor'
+);
+
+-- Criar Tabela de Turmas
+CREATE TABLE turmas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(50) NOT NULL
+);
+
+-- Criar Tabela de Alunos
 CREATE TABLE alunos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome VARCHAR(100) NOT NULL,
     matricula VARCHAR(20) UNIQUE NOT NULL,
-    email VARCHAR(100),
-    qr_code_token TEXT UNIQUE
-);
-
--- Criação da tabela de Professores
-CREATE TABLE professores (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL
-);
-
--- Criação da tabela de Turmas/Disciplinas
-CREATE TABLE turmas (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome_disciplina VARCHAR(50) NOT NULL,
-    professor_id INTEGER,
-    FOREIGN KEY (professor_id) REFERENCES professores(id)
-);
-
--- Tabela de ligação Aluno <-> Turma (Muitos para Muitos)
-CREATE TABLE turma_alunos (
+    qr_code_token VARCHAR(255) UNIQUE,
     turma_id INTEGER,
-    aluno_id INTEGER,
-    PRIMARY KEY (turma_id, aluno_id),
-    FOREIGN KEY (turma_id) REFERENCES turmas(id),
-    FOREIGN KEY (aluno_id) REFERENCES alunos(id)
+    FOREIGN KEY (turma_id) REFERENCES turmas(id)
 );
 
--- Registro de Presença
+-- Criar Tabela de Disciplinas
+CREATE TABLE disciplinas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    professor_id INTEGER,
+    FOREIGN KEY (professor_id) REFERENCES usuarios(id)
+);
+
+-- Criar Tabela de Registo de Chamada
 CREATE TABLE presencas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     aluno_id INTEGER,
-    turma_id INTEGER,
+    disciplina_id INTEGER,
     data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    metodo VARCHAR(20),
+    status VARCHAR(20) DEFAULT 'Presente',
     FOREIGN KEY (aluno_id) REFERENCES alunos(id),
-    FOREIGN KEY (turma_id) REFERENCES turmas(id)
+    FOREIGN KEY (disciplina_id) REFERENCES disciplinas(id)
 );
+
+
+4. Considerações de Escalabilidade (Melhorias Futuras)
+
+Índices: Criar um índice no campo data_hora para acelerar a geração de relatórios mensais.
+
+Segurança: O campo qr_code_token deve ser encriptado ou gerado de forma aleatória (UUID) para evitar que alunos criem QR Codes falsos.
+
+Logs: Implementação de uma tabela de auditoria para registar quem alterou uma presença manualmente (caso o professor precise corrigir um erro).
