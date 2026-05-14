@@ -49,7 +49,7 @@ O sistema pode ser aprimorado com a inclusão de novas funcionalidades, como:
 
  Sistema de login com autenticação individual
   Uso de QR Code exclusivo para cada aluno
- Reconhecimento facial para maior segurança
+ Reconhecimento por digital para maior segurança
  Aplicativo para dispositivos móveis
  Geração de relatórios e análises de frequência
 
