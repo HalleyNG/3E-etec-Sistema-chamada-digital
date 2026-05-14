@@ -61,4 +61,4 @@ A chamada digital representa um avanço importante na gestão escolar, tornando 
 
 
 
-Se quiser, posso adaptar esse painel para caber certinho em cartaz ou slide.
+Se quiser, posso adaptar esse painel para caber certinho em cartaz ou slid
