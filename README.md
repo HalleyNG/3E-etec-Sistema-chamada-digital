@@ -57,7 +57,3 @@ O sistema pode ser aprimorado com a inclusão de novas funcionalidades, como:
  7. Conclusão
 
 A chamada digital representa um avanço importante na gestão escolar, tornando o controle de presença mais rápido, seguro e eficiente. Além de facilitar o trabalho dos professores, também contribui para uma melhor organização dos dados e para a adaptação das escolas às novas tecnologias.
-
-
-
-Se quiser, posso adaptar esse painel para caber certinho em cartaz ou slid
