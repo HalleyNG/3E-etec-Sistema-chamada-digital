@@ -42,18 +42,6 @@ Para o desenvolvimento do sistema, são utilizadas diferentes tecnologias que tr
 O projeto é organizado em diferentes partes, cada uma com uma função específica. A interface permite a interação do usuário com o sistema, enquanto o servidor processa as informações e o banco de dados realiza o armazenamento. Essa organização facilita a manutenção, o entendimento e futuras melhorias do sistema.
 
 
-
- 6. Possíveis Melhorias
-
-O sistema pode ser aprimorado com a inclusão de novas funcionalidades, como:
-
- Sistema de login com autenticação individual
-  Uso de QR Code exclusivo para cada aluno
- Reconhecimento por digital para maior segurança
- Aplicativo para dispositivos móveis
- Geração de relatórios e análises de frequência
-
-
- 7. Conclusão
+ 6. Conclusão
 
 A chamada digital representa um avanço importante na gestão escolar, tornando o controle de presença mais rápido, seguro e eficiente. Além de facilitar o trabalho dos professores, também contribui para uma melhor organização dos dados e para a adaptação das escolas às novas tecnologias.
