@@ -1,0 +1,131 @@
+# Projeto: Sistema de Chamada por Reconhecimento Facial com Inteligência Artificial
+
+**Autores:**
+Andressa da Cruz Melo ([e2316551@edu.mt.gov.br](mailto:e2316551@edu.mt.gov.br))
+Halley Pedroso Suniga ([e2281524@edu.mt.gov.br](mailto:e2281524@edu.mt.gov.br))
+Gustavo Leal ([e2520025@edu.mt.gov.br](mailto:e2520025@edu.mt.gov.br))
+
+## Introdução
+
+Com o avanço da tecnologia, a Inteligência Artificial vem sendo aplicada em diversas áreas para tornar processos mais rápidos, seguros e eficientes. No ambiente escolar, uma das atividades realizadas diariamente é o controle de frequência dos alunos. Tradicionalmente, esse processo é feito por meio da chamada oral, o que consome tempo das aulas e pode gerar erros de registro.
+
+Pensando nisso, desenvolvemos um projeto de **Sistema de Chamada por Reconhecimento Facial com Inteligência Artificial**, que utiliza câmeras e algoritmos inteligentes para identificar automaticamente os alunos e registrar sua presença. Dessa forma, o processo de chamada torna-se mais moderno, preciso e compatível com a realidade tecnológica atual.
+
+Nosso projeto busca melhorar a gestão escolar, otimizar o tempo dos professores e oferecer mais segurança no controle de frequência dos estudantes.
+
+## Objetivo
+
+O principal objetivo do projeto é criar um sistema automatizado de presença utilizando reconhecimento facial e Inteligência Artificial.
+
+Entre os objetivos específicos estão:
+
+* Eliminar a necessidade da chamada manual;
+* Reduzir o tempo gasto no registro de presença;
+* Aumentar a segurança e a confiabilidade das informações;
+* Evitar fraudes ou registros indevidos;
+* Facilitar o acompanhamento da frequência pelos professores e gestores;
+* Utilizar Inteligência Artificial para análise e geração de relatórios inteligentes.
+
+## Funcionamento do Sistema
+
+O sistema funciona por meio de câmeras instaladas na entrada da escola ou nas salas de aula. Inicialmente, cada aluno realiza um cadastro facial autorizado pela instituição e pelos responsáveis.
+
+Quando o estudante chega ao ambiente escolar, a câmera captura sua imagem e a Inteligência Artificial compara os traços faciais com os dados armazenados no banco de dados. Caso a identificação seja confirmada, a presença é registrada automaticamente, juntamente com a data e o horário da entrada.
+
+Todo o processo ocorre em poucos segundos e sem a necessidade de interação manual do aluno ou do professor.
+
+As informações ficam armazenadas em um sistema digital, permitindo consultas em tempo real e a geração de relatórios de frequência.
+
+## Utilização da Inteligência Artificial
+
+A Inteligência Artificial é o principal elemento do projeto. Ela é responsável por reconhecer os rostos dos alunos, comparar características faciais e confirmar a identidade de cada estudante.
+
+Além do reconhecimento facial, a IA também poderá:
+
+* Detectar padrões de faltas e atrasos;
+* Gerar alertas sobre possíveis riscos de evasão escolar;
+* Produzir relatórios automáticos sobre frequência;
+* Auxiliar a coordenação na tomada de decisões;
+* Enviar notificações automáticas aos responsáveis.
+
+A tecnologia permite que o sistema aprenda continuamente e melhore sua precisão ao longo do tempo.
+
+## Tecnologias Utilizadas
+
+Para o desenvolvimento do projeto, serão utilizadas diversas tecnologias integradas:
+
+* **HTML e CSS:** criação da interface do sistema;
+* **JavaScript:** funcionalidades e interação do usuário;
+* **Python:** desenvolvimento dos algoritmos de Inteligência Artificial;
+* **OpenCV:** biblioteca utilizada para captura e processamento de imagens;
+* **Face Recognition:** tecnologia responsável pelo reconhecimento facial;
+* **MySQL ou SQLite:** armazenamento das informações dos alunos e registros de presença;
+* **Câmeras digitais:** captura das imagens para identificação dos estudantes.
+
+## Estrutura do Projeto
+
+O sistema será dividido em diferentes módulos:
+
+### Cadastro Facial
+
+Responsável pelo registro inicial do rosto de cada aluno.
+
+### Reconhecimento Facial
+
+Realiza a identificação automática por meio das câmeras.
+
+### Banco de Dados
+
+Armazena informações dos estudantes e registros de frequência.
+
+### Painel Administrativo
+
+Permite que professores e gestores acompanhem os registros de presença.
+
+### Relatórios Inteligentes
+
+Gera estatísticas e análises automáticas utilizando Inteligência Artificial.
+
+## Ideias Inovadoras
+
+Durante o desenvolvimento do projeto, pensamos em funcionalidades que tornam o sistema ainda mais inovador:
+
+### Notificação para Pais e Responsáveis
+
+Sempre que o aluno for identificado na entrada da escola, o sistema poderá enviar uma mensagem automática aos responsáveis informando sua chegada.
+
+### Relatórios Inteligentes
+
+A Inteligência Artificial poderá gerar gráficos sobre frequência, atrasos e faltas, auxiliando a gestão escolar.
+
+### Identificação de Risco de Evasão
+
+Ao analisar o histórico de frequência, a IA poderá detectar alunos com grande número de faltas e emitir alertas para a equipe pedagógica.
+
+### Dashboard em Tempo Real
+
+A escola poderá visualizar instantaneamente quantos alunos estão presentes, ausentes ou atrasados.
+
+### Integração com Aplicativo Escolar
+
+Os responsáveis poderão acompanhar a frequência dos estudantes diretamente pelo celular.
+
+## Benefícios do Projeto
+
+A implantação do Sistema de Chamada por Reconhecimento Facial oferece diversas vantagens:
+
+* Economia de tempo durante as aulas;
+* Maior precisão no registro de presença;
+* Redução de erros humanos;
+* Mais segurança nas informações;
+* Modernização da gestão escolar;
+* Melhor acompanhamento da frequência dos estudantes;
+* Fortalecimento da comunicação entre escola e família.
+
+## Conclusão
+
+Nós, Andressa da Cruz Melo, Halley Pedroso Suniga e Gustavo Leal, desenvolvemos este projeto acreditando que a tecnologia pode transformar positivamente o ambiente escolar.
+
+O Sistema de Chamada por Reconhecimento Facial com Inteligência Artificial representa uma solução moderna, eficiente e segura para o controle de frequência dos alunos. Além de automatizar processos, a tecnologia contribui para uma gestão mais inteligente dos dados escolares e para o acompanhamento do desempenho dos estudantes.
+
+Dessa forma, concluímos que a utilização do reconhecimento facial aliado à Inteligência Artificial pode ser um importante passo para a modernização das escolas e para a construção de um ambiente educacional mais tecnológico e inovador.
